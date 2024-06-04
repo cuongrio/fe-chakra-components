@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/preview/*": [
+        "preview/*"
+      ],
+      "@/projects/*": [
+        "projects/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ],
+      "@/views/*": [
+        "views/*"
+      ],
+      "@/charts/*": [
+        "charts/*"
+      ],
+      "@/Animations/*": [
+        "constants/Animations/*"
+      ]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "hooks/useFetch.ts",
+    "preview/navbar/choc-ui/link-righttsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

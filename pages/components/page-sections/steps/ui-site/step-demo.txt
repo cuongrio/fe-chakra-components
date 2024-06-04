@@ -1,0 +1,19 @@
+import Index from '@/preview/steps/ui-site/step-demo';
+import { Container } from '@chakra-ui/react';
+
+const StepDemo = () => {
+  return (
+    <Container
+    p={3}
+    minH="100vh"
+    margin="0 auto"
+    alignItems="center"
+    justifyContent="center"
+    maxW="container.md"
+  >
+    <Index />
+  </Container>
+    );
+};
+
+export default StepDemo;

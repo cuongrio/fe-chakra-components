@@ -1,0 +1,65 @@
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Stat,
+  StatLabel,
+  StatHelpText,
+  StatNumber,
+} from '@chakra-ui/react';
+import { Box, Stack, Image } from '@chakra-ui/react';
+import { MovieProps, MovieResults } from './type';
+
+const MovieList = ({ movies }: { movies: MovieProps }) => {
+  const sortByDate = (a, b) => {
+    return b.vote_average - a.vote_average;
+  };
+  const orderedByReleaseDate = [...movies.results].sort(sortByDate);
+  return (
+    <Accordion allowToggle>
+      {orderedByReleaseDate.map((movie: MovieResults) => {
+        const posterPath = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`;
+        return (
+          <AccordionItem key={movie.id}>
+            <div>
+              <AccordionButton _expanded={{ bg: '#34495e', color: '#fff' }} _focus={{ boxShadow: 'none' }}>
+                <Stack direction='row' align='center'>
+                  <Stat minWidth='120px'>
+                    <StatLabel>Rating</StatLabel>
+                    <StatNumber>{movie.vote_average}</StatNumber>
+                    <StatHelpText>No. of votes: {movie.vote_count}</StatHelpText>
+                  </Stat>
+                  <Box textAlign='left' ml={3}>
+                    <h3>{movie.title}</h3>
+                  </Box>
+                </Stack>
+                <AccordionIcon ml='auto' />
+              </AccordionButton>
+            </div>
+            <AccordionPanel pb={4}>
+              <Stack direction='row'>
+                <Image
+                  objectFit='contain'
+                  src={posterPath}
+                  alt={movie.title}
+                  borderRadius='5%'
+                  alignSelf='center'
+                  width='150px'
+                  height='225px'
+                />
+                <Stack justify='center' ml={3}>
+                  <Box textAlign='left'>Relase date: {movie.release_date}</Box>
+                  <Box>{movie.overview}</Box>
+                </Stack>
+              </Stack>
+            </AccordionPanel>
+          </AccordionItem>
+        );
+      })}
+    </Accordion>
+  );
+};
+
+export default MovieList;

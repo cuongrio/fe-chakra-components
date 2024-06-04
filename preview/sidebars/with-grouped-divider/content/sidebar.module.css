@@ -1,0 +1,19 @@
+.sidebarWrap {
+    overflow: hidden;
+    height: 100vh;
+    z-index: 99;
+}
+
+.sidebarInner {
+    overflow-y: auto;
+    scrollbar-width: none;
+    box-sizing: content-box; 
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.sidebarInner::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none;
+    background: transparent;
+}
